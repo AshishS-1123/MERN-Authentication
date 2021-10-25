@@ -13,10 +13,8 @@ exports.registerUser = async (req, res, next) => {
     })
 
     // If everything was done properly, send success to user
-    res.status (201).json ({
-      success: true,
-      user: user
-    })
+    sendToken (user, 201, res)
+
   } catch (error) {
     // In case of error, inform user
     return next (new ErrorResponse (error.message))
@@ -44,10 +42,7 @@ exports.loginUser = async (req, res, next) => {
     }
 
     // If everything was done properly, send success to user
-    res.status (200).json ({
-      success: true,
-      token: "some random token"
-    })
+    sendToken (user, 200, res)
 
   } catch (error) {
     return next (new ErrorResponse (error.message))
@@ -60,4 +55,12 @@ exports.forgotPassword = (req, res, next) => {
 
 exports.resetPassword = (req, res, next) => {
   res.send ("reset pass route");
+}
+
+const sendToken = (user, statusCode, res) => {
+  const token = user.getSignedToken ()
+  res.status (statusCode).json ({
+    success: true,
+    token
+  })
 }
