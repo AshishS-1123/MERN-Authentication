@@ -1,4 +1,5 @@
 const User = require ('../models/User')
+const ErrorResponse = require ('../utils/errorResponse')
 
 exports.registerUser = async (req, res, next) => {
   // Get the login info from the request
@@ -18,10 +19,7 @@ exports.registerUser = async (req, res, next) => {
     })
   } catch (error) {
     // In case of error, inform user
-    res.status (500).json ({
-      success: false,
-      error: error.message
-    })
+    return next (new ErrorResponse (error.message))
   }
 }
 
@@ -29,29 +27,20 @@ exports.loginUser = async (req, res, next) => {
   const { email, password } = req.body
 
   if (!email || !password) {
-    res.status (400).json ({
-      success: false,
-      error: "Please provide email and password."
-    })
+    return next (new ErrorResponse ("Please provide email and password.", 400))
   }
 
   try {
     const user = await User.findOne({ email }).select ('+password')
 
     if (!user) {
-      res.status (404).json ({
-        success: false,
-        error: "Invalid Credentials."
-      })
+      return next (new ErrorResponse ("Invalid Credentials.", 401))
     }
 
     const isMatch = await user.matchPassword (password)
 
     if (!isMatch) {
-      res.status (404).json ({
-        success: false,
-        error: "Invalid Credentials."
-      })
+      return next (new ErrorResponse ("Invalid Credentials.", 401))
     }
 
     // If everything was done properly, send success to user
@@ -59,12 +48,9 @@ exports.loginUser = async (req, res, next) => {
       success: true,
       token: "some random token"
     })
-    
+
   } catch (error) {
-    res.status (500).json ({
-      success: false,
-      error: error.message
-    })
+    return next (new ErrorResponse (error.message))
   }
 }
 
