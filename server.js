@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 5000
 
 app.use (express.json ())
 app.use ('/api/auth', require ('./routes/auth'))
+app.use ('/api/private', require ('./routes/private'))
 
 // Error Handler should always be the last middleware
 app.use (errorHandler)
