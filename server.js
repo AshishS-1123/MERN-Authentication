@@ -3,17 +3,21 @@ require ("dotenv").config ({path: "./config.env"})
 const express = require ('express')
 const app = express ()
 
+const connectDB = require ('./config/db')
+connectDB ()
+
 const PORT = process.env.PORT || 5000
 
 app.use (express.json ())
 
 app.use ('/api/auth', require ('./routes/auth'))
 
-app.listen (PORT, () => {
-  console.log(PORT);
+const server = app.listen (PORT, () => {
+  console.log(`Server Running on Port ${PORT}`);
 })
 
-app.get ('/', (req, res) => {
-  console.log("hey there")
-  res.end ("hello")
+// This will long the error if it occurs anywhere in app
+process.on ('unhandledRejection', (error, promise) => {
+  console.log(`Logged Error: ${error}`)
+  server.close (() => process.exit (1))
 })
