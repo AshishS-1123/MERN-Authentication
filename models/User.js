@@ -41,6 +41,12 @@ UserSchema.pre ('save', async function (next) {
   next ()
 })
 
+// We are attaching this method to our user object and using it to compare passwords
+// during authentication. Using bcrypt because the passwords are encrypted
+UserSchema.methods.matchPassword = async function (password) {
+  return await bcrypt.compare (password, this.password)
+}
+
 const User = mongoose.model ('User', UserSchema)
 
 module.exports = User
