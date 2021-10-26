@@ -1,6 +1,7 @@
 const User = require ('../models/User')
 const ErrorResponse = require ('../utils/errorResponse')
 const sendEmail = require ('../utils/sendEmail')
+const crypto = require ('crypto')
 
 exports.registerUser = async (req, res, next) => {
   // Get the login info from the request
@@ -65,7 +66,9 @@ exports.forgotPassword = async (req, res, next) => {
     // save the reset token to the database
     await user.save ()
 
+    // This is the url the user must visit to reset their passsword
     const resetUrl = `http://localhost:3000/passwordreset/${resetToken}`
+    // Message we will send the user to reset password using email.
     const message =  `
       <h1>You have requested a password request</h1>
       <p>Go to this link to reset password</p>
@@ -86,6 +89,7 @@ exports.forgotPassword = async (req, res, next) => {
 
     } catch (error) {
       console.log(error);
+      // If there was some problem in sending email.
       user.resetPasswordToken = undefined
       user.resetPasswordExpire = undefined
 
@@ -98,8 +102,32 @@ exports.forgotPassword = async (req, res, next) => {
   }
 }
 
-exports.resetPassword = (req, res, next) => {
-  res.send ("reset pass route");
+exports.resetPassword = async (req, res, next) => {
+  const resetToken = crypto.createHash ('sha256').update (req.params.resetToken).digest ('hex')
+
+  try {
+    const user = await User.findOne ({
+      resetPasswordToken: resetToken,
+      resetPasswordExpire: {$gt: Date.now ()}
+    })
+
+    if (!user) {
+      return next (new ErrorResponse ("Invalid Reset Token.", 400))
+    }
+
+    user.password = req.body.password
+    user.resetPasswordToken = undefined
+    user.resetPasswordExpire = undefined
+
+    await user.save ()
+
+    return res.status (201).json ({
+      success: true,
+      data: "Password Reset Success."
+    })
+  } catch (error) {
+    next (error)
+  }
 }
 
 const sendToken = (user, statusCode, res) => {
