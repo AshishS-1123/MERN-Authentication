@@ -17,15 +17,17 @@ function HomeButtons() {
       <h1 className="container_heading">Authentication API</h1>
 
       <p>
-        Welcome to my Authentication Project. <br />
+        Welcome to my Authentication Project.
+        Use the buttons below to create and then log in to your account.
+        Note that this is just a demo project.
       </p>
 
       <Link to="/signIn">
-        <button className="button">Sign In</button>
+        <button className="button home_btn">Sign In</button>
       </Link>
 
       <Link to="/signUp">
-        <button className="button">Sign Up</button>
+        <button className="button home_btn">Sign Up</button>
       </Link>
     </div>
   )

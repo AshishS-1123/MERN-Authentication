@@ -37,6 +37,51 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+
+  .container {
+      width: 480px;
+      height: 800px;
+      background: #0e0e0e;
+      margin:  0 auto;
+      margin-top: 10vh;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0px 0px 20px 0px black;
+  }
+
+  .container_heading {
+    color: #fdfdfd;
+    font-family: Acme;
+    font-size: 38px;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+
+    text-align: left;
+  }
+
+  .button {
+    width: 80%;
+    height: 80px;
+    margin-bottom: 20px;
+
+    background: linear-gradient(to right, #ba26e1, #d93eaf);
+    border: none;
+    border-radius: 20px;
+    color: white;
+
+    font-family: Acme;
+    font-size: 24px;
+
+    box-shadow: 0px 0px 20px 0px #c51ec394;
+  }
+
+  .container p {
+    color: white;
+    font-family: KleeRegular;
+    font-size: 16px;
+    margin-top: 0px;
+    width: 90%;
+  }
 `;
 
 export default GlobalStyle;

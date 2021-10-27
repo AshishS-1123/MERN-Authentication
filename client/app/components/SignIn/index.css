@@ -1,0 +1,32 @@
+.back_button {
+  margin-right: 30px;
+  font-size: 55px;
+}
+
+.back_button a {
+  text-decoration: none;
+  color: white;
+}
+
+.form {
+  margin-top: 20%;
+}
+
+.form > .button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8%;
+}
+
+.form > p {
+  margin: 0 auto !important;
+  text-align: center;
+}
+
+.form > p > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 17px;
+}
