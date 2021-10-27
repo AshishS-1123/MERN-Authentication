@@ -1,34 +1,14 @@
-/**
- *
- * SignInPage
- *
- */
+import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import SignIn from 'components/SignIn/Loadable'
 
 export function SignInPage() {
-  return <div />;
+  return (
+    <React.Fragment>
+      <SignIn />
+    </React.Fragment>
+  )
 }
 
-SignInPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
-
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-const withConnect = connect(
-  null,
-  mapDispatchToProps,
-);
-
-export default compose(
-  withConnect,
-  memo,
-)(SignInPage);
+export default SignInPage

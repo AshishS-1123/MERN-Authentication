@@ -26,6 +26,9 @@ import LanguageProvider from 'containers/LanguageProvider';
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess';
+
+import '!file-loader?name=Acme.ttf!./fonts/Acme.ttf'
+import '!file-loader?name=KleeRegular.ttf!./fonts/KleeOne-Regular.ttf'
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';

@@ -1,18 +1,11 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- */
-
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+
+import HomeButtons from 'components/HomeButtons/Loadable'
 
 export default function HomePage() {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
-  );
+    <React.Fragment>
+      <HomeButtons />
+    </React.Fragment>
+  )
 }

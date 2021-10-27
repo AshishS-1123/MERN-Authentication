@@ -1,0 +1,69 @@
+.Auth__card {
+  width: 23vw;
+  height: auto;
+
+  margin: 0 auto;
+  padding: 1vw;
+
+  background: #efefef !important;
+  box-shadow: none !important;
+}
+
+.Auth__formcontrol {
+  width: 100%;
+
+  height: 8.7962vh;
+  margin-bottom: 20px !important;
+  border-radius: 5px !important;
+
+  box-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.3) !important;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.MuiInput-underline::after, .MuiInput-underline::before {
+  border-bottom: none !important;
+}
+
+.MuiInputLabel-formControl {
+  position: inherit !important;
+
+  font-family: "Semilight" !important;
+  font-size: 22px !important;
+  color: #151515 !important;
+  text-transform: none;
+}
+
+.MuiInputLabel-shrink {
+  transform: translate(0, 12px) scale(0.75) !important;
+}
+
+.Auth__input {
+  padding-bottom: 10px !important;
+  font-size: 20px !important;
+  color: #151515 !important;
+}
+
+.Auth__button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 5vh !important;
+  background: #f2af4a !important;
+  box-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.3) !important;
+  border: none !important;
+
+  text-transform: uppercase !important;
+}
+
+.MuiButton-label > a {
+  text-decoration: none !important;
+  color: white !important;
+  font-family: "Regular";
+  font-size: 22px;
+}

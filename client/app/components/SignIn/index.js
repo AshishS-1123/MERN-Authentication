@@ -1,9 +1,11 @@
-import React, { memo } from 'react';
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import React, { memo } from 'react'
 
 function SignIn() {
-  return <div />;
+  return (
+    <div>
+      Sign In
+    </div>
+  )
 }
 
 SignIn.propTypes = {};
