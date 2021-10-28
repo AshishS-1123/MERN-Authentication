@@ -10,14 +10,16 @@ import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
-    <div>
+    <React.Fragment>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/signIn" component={SignInPage} />
-        <Route exact path="/signUp" component={SignUpPage} />
+        <Route exact path="/login" component={SignInPage} />
+        <Route exact path="/register" component={SignUpPage} />
+        <Route exact path="/forgotPassword" component={SignUpPage} />
+        <Route exact path="/resetPassword/:resetToken" component={SignUpPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </div>
+    </React.Fragment>
   );
 }

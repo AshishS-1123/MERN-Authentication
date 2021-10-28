@@ -9,7 +9,7 @@
 }
 
 .form {
-  margin-top: 20%;
+  margin-bottom: 20%;
 }
 
 .form > .button {
@@ -24,9 +24,17 @@
   text-align: center;
 }
 
-.form > p > a {
+.form a {
   color: white;
   text-decoration: none;
   font-weight: 900;
   font-size: 17px;
+  font-family: KleeRegular;
+}
+
+.form > a > div {
+  font-weight: 300;
+
+  width: 100%;
+  text-align: center;
 }

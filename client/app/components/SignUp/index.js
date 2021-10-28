@@ -24,7 +24,7 @@ function SignUp() {
         <button type="submit" className="button">Sign Up</button>
         <p style={{margin: "0 auto", textAlign: "center"}}>
           Already have an account?&nbsp;
-          <Link to='/signIn'>Sign In</Link> here.
+          <Link to='/login'>Sign In</Link> here.
         </p>
       </form>
     </div>

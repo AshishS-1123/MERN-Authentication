@@ -25,11 +25,11 @@ function HomeButtons() {
       </div>
 
       <div class="button_container">
-        <Link to="/signIn">
+        <Link to="/login">
           <button className="button home_btn">Sign In</button>
         </Link>
 
-        <Link to="/signUp">
+        <Link to="/register">
           <button className="button home_btn">Sign Up</button>
         </Link>
       </div>
