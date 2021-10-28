@@ -43,10 +43,16 @@ const GlobalStyle = createGlobalStyle`
       height: 800px;
       background: #0e0e0e;
       margin:  0 auto;
-      margin-top: 10vh;
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0px 0px 20px 0px black;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
   }
 
   .container_heading {

@@ -14,21 +14,25 @@ const style = {
 function HomeButtons() {
   return (
     <div className="container">
-      <h1 className="container_heading">Authentication API</h1>
+      <div>
+        <h1 className="container_heading">Authentication API</h1>
 
-      <p>
-        Welcome to my Authentication Project.
-        Use the buttons below to create and then log in to your account.
-        Note that this is just a demo project.
-      </p>
+        <p>
+          Welcome to my Authentication Project.
+          Use the buttons below to create and then log in to your account.
+          Note that this is just a demo project.
+        </p>
+      </div>
 
-      <Link to="/signIn">
-        <button className="button home_btn">Sign In</button>
-      </Link>
+      <div class="button_container">
+        <Link to="/signIn">
+          <button className="button home_btn">Sign In</button>
+        </Link>
 
-      <Link to="/signUp">
-        <button className="button home_btn">Sign Up</button>
-      </Link>
+        <Link to="/signUp">
+          <button className="button home_btn">Sign Up</button>
+        </Link>
+      </div>
     </div>
   )
 }

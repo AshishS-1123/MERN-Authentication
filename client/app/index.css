@@ -1,0 +1,21 @@
+@media only screen and (max-width: 485px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+  }
+  button.button {
+    width: 90% !important;
+    border-radius: 25px;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  div.container {
+    height: 100vh;
+  }
+}
+
+
+/*
+font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+*/
