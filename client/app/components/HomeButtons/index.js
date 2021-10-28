@@ -24,7 +24,7 @@ function HomeButtons() {
         </p>
       </div>
 
-      <div class="button_container">
+      <div className="button_container">
         <Link to="/login">
           <button className="button home_btn">Sign In</button>
         </Link>
