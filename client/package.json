@@ -1,7 +1,7 @@
 {
   "name": "Authentication Client",
   "version": "1.0.0",
-  "proxy":"http://localhost:5000",
+  "proxy": "http://192.168.43.20:5000",
   "description": "Front End Code for using the Authentication API",
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ const jwt = require ('jsonwebtoken')
 
 // The schema for database table
 const UserSchema = new mongoose.Schema ({
-  userName: {
+  username: {
     type: String,
     required: [true, "Please provide a user name."]
   },

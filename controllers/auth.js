@@ -5,13 +5,13 @@ const crypto = require ('crypto')
 
 exports.registerUser = async (req, res, next) => {
   // Get the login info from the request
-  const { userName, email, password } = req.body
+  const { username, email, password } = req.body
 
   try {
     // Create a new user in the database.
     // No need to perform hashing. Will be done using middleware
     const user = await User.create ({
-      userName, email, password
+      username, email, password
     })
 
     // If everything was done properly, send success to user
