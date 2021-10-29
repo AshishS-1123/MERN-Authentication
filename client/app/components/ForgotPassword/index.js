@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import Input from 'components/Input/Loadable'
 import './index.css'
 
-function ForgotPassword() {
+function ForgotPassword({ setUserEmail, requestPasswordReset }) {
   return (
     <div className='container'>
       <h1 className="container_heading">
@@ -18,14 +19,25 @@ function ForgotPassword() {
 
 
       <form className="form">
-        <Input label="Email" type="text" placeholder="Enter Your Email" autocomplete="username"/>
+        <Input label="Email"
+               type="text"
+               placeholder="Enter Your Email"
+               autocomplete="username"
+               setUserCredentials={setUserEmail}
+               />
 
-        <button type='submit' className='button'>Send Reset Email</button>
+        <button type='submit'
+                className='button'
+                onClick={requestPasswordReset}
+                >Send Reset Email</button>
       </form>
     </div>
   )
 }
 
-ForgotPassword.propTypes = {};
+ForgotPassword.propTypes = {
+  setUserEmail: PropTypes.func.isRequired,
+  requestPasswordReset: PropTypes.func.isRequired,
+}
 
 export default memo(ForgotPassword);
