@@ -45,11 +45,26 @@ const StyledInput = styled.input`
   }
 `
 
-function Input({ label, type, placeholder, autocomplete }) {
+function Input({ label, type, placeholder, autocomplete, setUserCredentials }) {
+
+  const handleInputChange = (event) => {
+    const { id, value } = event.target
+    
+    setUserCredentials((prevCreds) => {
+      return {...prevCreds, [id.toLowerCase()]: value}
+    })
+  }
+
   return (
     <StyledContainer>
       <StyledLabel htmlFor={label}>{label}</StyledLabel>
-      <StyledInput type={type} name={label} id={label} placeholder={placeholder} autoComplete={autocomplete}/>
+      <StyledInput type={type}
+                   name={label}
+                   id={label}
+                   placeholder={placeholder}
+                   autoComplete={autocomplete}
+                   onChange={(event) => handleInputChange(event)}
+                   />
     </StyledContainer>
   )
 }

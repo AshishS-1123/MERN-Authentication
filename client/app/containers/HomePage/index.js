@@ -7,7 +7,7 @@ import PrivateView from 'components/PrivateView/Loadable'
 export default function HomePage() {
   const isLoggedIn = localStorage.getItem ('authToken')
 
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
     return <PrivateView />
   } else {
     return <HomeButtons />

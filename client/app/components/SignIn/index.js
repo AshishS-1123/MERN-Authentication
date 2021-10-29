@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import Input from 'components/Input/Loadable'
 import './index.css'
 
-function SignIn() {
+function SignIn({ setUserCredentials, verifyUser }) {
   return (
     <div className="container">
       <h1 className="container_heading">
@@ -17,11 +18,23 @@ function SignIn() {
       </h1>
 
       <form className="form">
-        <Input label="Email" type="text" placeholder="Enter Your Email" autocomplete="username"/>
-        <Input label="Password" type="password" placeholder="Enter Your Password" autocomplete="current-password"/>
+        <Input label="Email"
+               type="text"
+               placeholder="Enter Your Email"
+               autocomplete="username"
+               setUserCredentials={setUserCredentials}
+               />
+        <Input label="Password"
+               type="password"
+               placeholder="Enter Your Password"
+               autocomplete="current-password"
+               setUserCredentials={setUserCredentials}
+               />
         <Link to='/forgotPassword'><div>Forgot Password?</div></Link>
 
-        <button type="submit" className="button">Sign In</button>
+        <button type="submit"
+                className="button"
+                onClick={verifyUser}>Sign In</button>
         <p>
           Don't have an account?&nbsp;
           <Link to='/register'>Sign Up</Link> here.
@@ -31,6 +44,9 @@ function SignIn() {
   )
 }
 
-SignIn.propTypes = {};
+SignIn.propTypes = {
+  setUserCredentials: PropTypes.func.isRequired,
+  verifyUser: PropTypes.func.isRequired
+}
 
 export default memo(SignIn);
