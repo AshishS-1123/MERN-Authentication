@@ -25,11 +25,7 @@ export function SignUpPage() {
 
     try {
       const { data } = await axios.post ('http://192.168.43.20:5000/api/auth/register', userCredentials, config)
-      // axios.post ('http://localhost:5000/api/auth/register', userCredentials, config).then ((res) => {
-      //   console.log(res);
-      // })
       localStorage.setItem ('authToken', data.token)
-      console.log(`token ${data.token}`);
     } catch (error) {
       console.error(error);
     }
